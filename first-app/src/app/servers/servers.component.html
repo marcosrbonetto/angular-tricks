@@ -1,24 +1,31 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
-            <label>Username:</label>
+            <label>ServerName:</label>
             <input type="text"
                 class="form-control"
-                [(ngModel)]="username">
+                [(ngModel)]="serverName">
             <br>
-
-            <button 
+            <div class="row">
+                <button 
                 class="btn btn-primary"
-                [disabled]="!username"
-                (click)="username=''">Clean</button>
+                [disabled]="!serverName"
+                (click)="onCreateServer()">Add new</button>
+            
+                <button 
+                class="btn btn-primary"
+                [disabled]="!serverName"
+                (click)="clean()">Clean</button>
+            </div>
 
             <br>
             <hr/>
-
-            <p *ngIf="username; else noUsername">{{username}}</p>
-            <ng-template #noUsername>
-                <p>No username set</p>
+            <label>List of Servers</label>
+            <p *ngIf="(!serverName || arrayOfServers.length===0); else noServerName">No server name set</p>
+            <ng-template #noServerName>
+                <app-server *ngFor="let item of arrayOfServers"></app-server>
             </ng-template>
+            
         </div>
     </div>
 </div>
