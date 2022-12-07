@@ -9,13 +9,16 @@
 
             <button 
                 class="btn btn-primary"
-                [disabled]="username==''"
+                [disabled]="!username"
                 (click)="username=''">Clean</button>
 
             <br>
             <hr/>
 
-            <p>{{username}}</p>
+            <p *ngIf="username; else noUsername">{{username}}</p>
+            <ng-template #noUsername>
+                <p>No username set</p>
+            </ng-template>
         </div>
     </div>
 </div>
