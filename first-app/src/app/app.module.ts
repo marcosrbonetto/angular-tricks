@@ -11,6 +11,7 @@ import { DirectivesComponent } from './homeworks/directives/directives.component
 import { GameControlComponent } from './homeworks/game-control/game-control.component';
 import { OddComponent } from './homeworks/odd/odd.component';
 import { EvenComponent } from './homeworks/even/even.component';
+import { CustomDirectivesDirective } from './directives/custom-directives.directive';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EvenComponent } from './homeworks/even/even.component';
     DirectivesComponent,
     GameControlComponent,
     OddComponent,
-    EvenComponent
+    EvenComponent,
+    CustomDirectivesDirective
   ],
   imports: [
     BrowserModule,
