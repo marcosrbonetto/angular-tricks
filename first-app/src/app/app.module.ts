@@ -8,6 +8,9 @@ import { ServersComponent } from './servers/servers.component';
 import { SuccessComponent } from './success/success.component';
 import { WarningComponent } from './warning/warning.component';
 import { DirectivesComponent } from './homeworks/directives/directives.component';
+import { GameControlComponent } from './homeworks/game-control/game-control.component';
+import { OddComponent } from './homeworks/odd/odd.component';
+import { EvenComponent } from './homeworks/even/even.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { DirectivesComponent } from './homeworks/directives/directives.component
     ServersComponent,
     SuccessComponent,
     WarningComponent,
-    DirectivesComponent
+    DirectivesComponent,
+    GameControlComponent,
+    OddComponent,
+    EvenComponent
   ],
   imports: [
     BrowserModule,

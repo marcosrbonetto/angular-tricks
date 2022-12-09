@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'lists';
+  pageToShow = 'recipe';
+
+  onNavigate(newPage:string){
+    this.pageToShow = newPage;
+  }
 }

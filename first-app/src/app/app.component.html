@@ -2,14 +2,22 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
-            <h3>Manage Server Component</h3>
+            <!-- <h3>Manage Server Component</h3>
             <hr>
             <app-servers></app-servers>
             <hr>
             <h3>Directives Homework</h3>
             <hr>
             <app-directive></app-directive>
+            <hr> -->
+            <h3>Game Control Homework</h3>
             <hr>
+            <app-game-control (gameStarts)="onStart($event)"></app-game-control>
+            <app-even *ngIf="even; else odd" [theEvenNumber]="theNumber"></app-even>
+            <ng-template #odd>
+                <app-odd [theOddNumber]="theNumber"></app-odd>
+            </ng-template>
+
         </div>
     </div>
 </div>
