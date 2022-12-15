@@ -1,8 +1,28 @@
 
 <div class="container">
     <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+            <ul class="nav nav-tabs">
+                <li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">   
+                    <a routerLink="/">Home</a>
+                </li>
+                <li role="presentation" routerLinkActive="active">
+                    <a routerLink="/user">User</a>
+                </li>
+                <li role="presentation" routerLinkActive="active">
+                    <a routerLink="/server">Server</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-xs-12">
-            <!-- <h3>Manage Server Component</h3>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+
+<!-- <h3>Manage Server Component</h3>
             <hr>
             <app-servers></app-servers>
             <hr>-->
@@ -16,13 +36,8 @@
             <app-even *ngIf="even; else odd" [theEvenNumber]="theNumber"></app-even>
             <ng-template #odd>
                 <app-odd [theOddNumber]="theNumber"></app-odd>
-            </ng-template> -->
+            </ng-template>
             <h3>Custom Directives</h3>
             <hr>
             <p appCustomDirectives defaultElementColor="red">HOLA</p>
-            <hr>
-        </div>
-    </div>
-</div>
-
-
+            <hr>-->

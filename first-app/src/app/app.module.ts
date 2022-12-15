@@ -13,6 +13,15 @@ import { OddComponent } from './homeworks/odd/odd.component';
 import { EvenComponent } from './homeworks/even/even.component';
 import { CustomDirectivesDirective } from './directives/custom-directives.directive';
 import { DropdownDirective } from './directives/dropdown.directive';
+import { UserComponent } from './users/user/user.component';
+import { HomeComponent } from './home/home/home.component';
+import { NotFoundComponent } from './not-found/not-found/not-found.component';
+import { EditUserComponent } from './users/edit-user/edit-user.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AuthService } from './auth.service';
+import { AuthGuardService } from './auth-guard.service';
+import { DetailUserComponent } from './users/detail-user/detail-user.component';
+import { CanDeactivateGuard } from './home/home/can-deactivate-guard.service';
 
 @NgModule({
   declarations: [
@@ -26,13 +35,19 @@ import { DropdownDirective } from './directives/dropdown.directive';
     OddComponent,
     EvenComponent,
     CustomDirectivesDirective,
-    DropdownDirective
+    DropdownDirective,
+    UserComponent,
+    HomeComponent,
+    NotFoundComponent,
+    EditUserComponent,
+    DetailUserComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthService, AuthGuardService, CanDeactivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
