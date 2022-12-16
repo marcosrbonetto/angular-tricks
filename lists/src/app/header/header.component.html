@@ -2,7 +2,7 @@
     <div class="container-fluid">
         
         <div class="navbar-header">
-            <a href="#" class="navbar-brand">Recipe Book</a>
+            <a routerLink="/recipes" class="navbar-brand">Recipe Book</a>
         </div>
 
         <div class="navbar-default"> 
@@ -15,15 +15,15 @@
         </div>
         <div class="navbar-collapse" [class.collapse]="collapsed" (window:resize)="collapsed = true"> -->
             <ul class="nav navbar-nav">
-                <li><a href="#" (click)="onFeatureSelected('recipe')">Recipes</a></li>
-                <li><a href="#" (click)="onFeatureSelected('shoppingList')">Shopping List</a></li>
+                <li routerLinkActive="active" style="cursor: pointer;"><a routerLink="/recipes">Recipes</a></li>
+                <li routerLinkActive="active" style="cursor: pointer;"><a routerLink="/shopping-list">Shopping List</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li appDropdown class="dropdown">
-                    <a href="#" class="dropdown-toggle" role="button">Manage<span class="caret"></span></a>
+                    <a class="dropdown-toggle" role="button">Manage<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Save Data</a></li>
-                        <li><a href="#">Fetch Data</a></li>
+                        <li style="cursor: pointer;"><a>Save Data</a></li>
+                        <li style="cursor: pointer;"><a>Fetch Data</a></li>
                     </ul>
                 </li>
             </ul>

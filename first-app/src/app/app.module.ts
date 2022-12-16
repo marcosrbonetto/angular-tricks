@@ -22,6 +22,7 @@ import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guard.service';
 import { DetailUserComponent } from './users/detail-user/detail-user.component';
 import { CanDeactivateGuard } from './home/home/can-deactivate-guard.service';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { CanDeactivateGuard } from './home/home/can-deactivate-guard.service';
     HomeComponent,
     NotFoundComponent,
     EditUserComponent,
-    DetailUserComponent
+    DetailUserComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
