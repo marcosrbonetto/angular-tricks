@@ -5,8 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ServerComponent } from './server/server.component';
 import { ServersComponent } from './servers/servers.component';
-import { SuccessComponent } from './success/success.component';
-import { WarningComponent } from './warning/warning.component';
 import { DirectivesComponent } from './homeworks/directives/directives.component';
 import { GameControlComponent } from './homeworks/game-control/game-control.component';
 import { OddComponent } from './homeworks/odd/odd.component';
@@ -23,14 +21,15 @@ import { AuthGuardService } from './auth-guard.service';
 import { DetailUserComponent } from './users/detail-user/detail-user.component';
 import { CanDeactivateGuard } from './home/home/can-deactivate-guard.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { ObservableComponent } from './observable/observable.component';
+import { UserFormComponent } from './forms/user-form/user-form.component';
+import { UserAssesmentComponent } from './forms/user-assesment/user-assesment.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ServerComponent,
     ServersComponent,
-    SuccessComponent,
-    WarningComponent,
     DirectivesComponent,
     GameControlComponent,
     OddComponent,
@@ -42,7 +41,10 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     NotFoundComponent,
     EditUserComponent,
     DetailUserComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    ObservableComponent,
+    UserFormComponent,
+    UserAssesmentComponent
   ],
   imports: [
     BrowserModule,

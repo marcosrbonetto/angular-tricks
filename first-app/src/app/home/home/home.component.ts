@@ -11,7 +11,7 @@ import { CanComponentDeactivate } from './can-deactivate-guard.service';
 })
 export class HomeComponent implements OnInit, CanComponentDeactivate{ 
 
-  changesSaved:boolean=false;
+  changesSaved:boolean=true;
   constructor(private router:Router, private authService:AuthService){}
 
   ngOnInit(): void {

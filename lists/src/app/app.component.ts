@@ -6,10 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'lists';
-  pageToShow = 'recipe';
-
-  onNavigate(newPage:string){
-    this.pageToShow = newPage;
-  }
 }

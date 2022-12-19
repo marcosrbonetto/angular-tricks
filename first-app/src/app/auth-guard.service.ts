@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { AuthService } from "./auth.service";
 
 @Injectable()
+
 export class AuthGuardService implements CanActivate, CanActivateChild{
     constructor(private authService:AuthService, private router:Router){}
 
