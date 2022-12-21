@@ -3,7 +3,7 @@
         <app-shopping-edit></app-shopping-edit>
         <hr>
         <ul class="list-group">
-            <a *ngFor="let item of ingredients" style="cursor:pointer" class="list-group-item clearfix">
+            <a *ngFor="let item of ingredients; let i=index" (click)="onEditItem(i)" style="cursor:pointer" class="list-group-item clearfix">
                 <div class="pull-left">
                     <p class="list-group-item-heading">{{item.name}}</p>
                 </div>
