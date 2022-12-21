@@ -2,6 +2,8 @@ import { NgModule } from "@angular/core";
 import { Router, RouterModule, Routes } from "@angular/router";
 import { AuthGuardService } from "./auth-guard.service";
 import { ErrorPageComponent } from "./error-page/error-page.component";
+import { ReactiveAssessmentComponent } from "./forms/reactive-assessment/reactive-assessment.component";
+import { ReactiveFormComponent } from "./forms/reactive-form/reactive-form.component";
 import { UserAssesmentComponent } from "./forms/user-assesment/user-assesment.component";
 import { UserFormComponent } from "./forms/user-form/user-form.component";
 import { CanDeactivateGuard } from "./home/home/can-deactivate-guard.service";
@@ -19,7 +21,7 @@ const appRoutes : Routes = [
         { path: ':id/edit', component: EditUserComponent}
     ]},
     { path:'forms', component:UserFormComponent},
-    { path:'assesment', component:UserAssesmentComponent},
+    { path:'reactive', component:ReactiveAssessmentComponent},
     { path: 'not-found', component: ErrorPageComponent, data: {message:'Page not found'}},
     { path: '**', redirectTo: '/not-found'}
 ];

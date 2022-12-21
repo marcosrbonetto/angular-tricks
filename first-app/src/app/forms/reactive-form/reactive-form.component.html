@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+            <form [formGroup]="theForm" (ngSubmit)="onSubmit()">
+                <div formGroupName="userData">
+                    <div class="form-group" >
+                        <label for="username">Username</label>
+                        <input 
+                            id="username"
+                            formControlName="username" 
+                            class="form-control" 
+                            type="text"
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input 
+                            id="email"
+                            formControlName="email" 
+                            class="form-control" 
+                            type="text"
+                        >
+                    </div>
+                </div>
+                <hr>
+                <div formArrayName="hobbies">
+                    <h4>Your Hobbies</h4>
+                    <button type="button" class="btn btn-secondary" (click)="listHobbiesControls()">Add hobbies</button>
+                    <div class="form-group" *ngFor="let hobbyControl of getHobbiesControls().controls;let i = index">
+                        <input class="form-control" type="text" [formControlName]="i">
+                    </div>
+                </div>
+                <hr>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <hr>
+                <span *ngIf="!theForm.get('userData.username').valid && theForm.get('userData.username').touched" class="help-block">INVALID USERNAME</span>
+                <span *ngIf="!theForm.get('userData.email').valid && theForm.get('userData.email').touched" class="help-block">INVALID EMAIL</span>
+            </form>
+        </div>
+    </div>
+    <div class="row" *ngIf="false">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+            <h3>The Information</h3>
+            <p>{{theForm.get('userData.username')}}</p>
+        </div>
+    </div>
+</div>

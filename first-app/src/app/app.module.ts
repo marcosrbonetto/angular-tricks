@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ServerComponent } from './server/server.component';
@@ -24,6 +24,8 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { ObservableComponent } from './observable/observable.component';
 import { UserFormComponent } from './forms/user-form/user-form.component';
 import { UserAssesmentComponent } from './forms/user-assesment/user-assesment.component';
+import { ReactiveFormComponent } from './forms/reactive-form/reactive-form.component';
+import { ReactiveAssessmentComponent } from './forms/reactive-assessment/reactive-assessment.component';
 
 @NgModule({
   declarations: [
@@ -44,10 +46,13 @@ import { UserAssesmentComponent } from './forms/user-assesment/user-assesment.co
     ErrorPageComponent,
     ObservableComponent,
     UserFormComponent,
-    UserAssesmentComponent
+    UserAssesmentComponent,
+    ReactiveFormComponent,
+    ReactiveAssessmentComponent
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     FormsModule,
     AppRoutingModule
   ],
