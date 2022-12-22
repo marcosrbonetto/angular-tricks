@@ -21,7 +21,7 @@ const appRoutes : Routes = [
         { path: ':id/edit', component: EditUserComponent}
     ]},
     { path:'forms', component:UserFormComponent},
-    { path:'reactive', component:ReactiveAssessmentComponent},
+    { path:'reactive', component:ReactiveFormComponent},
     { path: 'not-found', component: ErrorPageComponent, data: {message:'Page not found'}},
     { path: '**', redirectTo: '/not-found'}
 ];

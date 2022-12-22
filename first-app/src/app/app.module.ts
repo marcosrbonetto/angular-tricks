@@ -26,6 +26,8 @@ import { UserFormComponent } from './forms/user-form/user-form.component';
 import { UserAssesmentComponent } from './forms/user-assesment/user-assesment.component';
 import { ReactiveFormComponent } from './forms/reactive-form/reactive-form.component';
 import { ReactiveAssessmentComponent } from './forms/reactive-assessment/reactive-assessment.component';
+import { UserPipe } from './users/user.pipe';
+import { FilterPipe } from './users/user/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -48,8 +50,10 @@ import { ReactiveAssessmentComponent } from './forms/reactive-assessment/reactiv
     UserFormComponent,
     UserAssesmentComponent,
     ReactiveFormComponent,
-    ReactiveAssessmentComponent
-  ],
+    ReactiveAssessmentComponent,
+    UserPipe,
+    FilterPipe
+    ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,

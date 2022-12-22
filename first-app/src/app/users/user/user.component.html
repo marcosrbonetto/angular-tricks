@@ -1,7 +1,11 @@
 <div class="row">
     <div class="col-md-12">
-        <h1>User</h1>
-        <hr>
+        <h1>{{nameToFilter | userSubstring:5}}</h1>
+        <input type="text" [(ngModel)]="nameToFilter">
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let item of arrayName | filter : nameToFilter : 'name'">{{item.name}}</li>
+        </ul>
+
         <button class="btn btn-primary" (click)="back()">Back</button>
         <button class="btn btn-primary" (click)="goToDetail()">Go to detail</button>
         <button class="btn btn-primary" (click)="goToEdit()">Go to edit</button>

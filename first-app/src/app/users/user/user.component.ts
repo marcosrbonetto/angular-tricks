@@ -10,6 +10,9 @@ import { Subscription } from 'rxjs';
 export class UserComponent implements OnInit, OnDestroy{
   userId:number;
   paramSuscription:Subscription;
+  nameToFilter='';
+
+  arrayName = [{name:'hola', otro:2},{name:'chau', otro:2},{name:'111', otro:2},{name:'222', otro:2}];
 
   constructor(private router:Router, private myRoute:ActivatedRoute){}
   ngOnInit(): void {

@@ -41,7 +41,7 @@
     <div class="row" *ngIf="false">
         <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
             <h3>The Information</h3>
-            <p>{{theForm.get('userData.username')}}</p>
+            <p>{{theForm.get('userData.username') | userSubstring:5}}</p>
         </div>
     </div>
 </div>
