@@ -25,6 +25,15 @@ ngOnInit(){
 
 }
 
+deleteRecipe(){
+  this.recipeService.deleteRecipe(this.index);
+  this.back();
+}
+
+back(){
+  this.router.navigate(['../'],{relativeTo:this.myRoute});
+}
+
 
 
 onAddToShoppingList(){
