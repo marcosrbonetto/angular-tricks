@@ -5,6 +5,10 @@
         <ul class="list-group">
             <li class="list-group-item" *ngFor="let item of arrayName | filter : nameToFilter : 'name'">{{item.name}}</li>
         </ul>
+        <hr>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let item of arrayName2 | orderList : 'name'">{{item.name}}</li>
+        </ul>
 
         <button class="btn btn-primary" (click)="back()">Back</button>
         <button class="btn btn-primary" (click)="goToDetail()">Go to detail</button>

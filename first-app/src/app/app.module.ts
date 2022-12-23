@@ -28,6 +28,8 @@ import { ReactiveFormComponent } from './forms/reactive-form/reactive-form.compo
 import { ReactiveAssessmentComponent } from './forms/reactive-assessment/reactive-assessment.component';
 import { UserPipe } from './users/user.pipe';
 import { FilterPipe } from './users/user/filter.pipe';
+import { ReversePipe } from './users/user/reverse.pipe';
+import { OrderListPipe } from './users/user/order-list.pipe';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { FilterPipe } from './users/user/filter.pipe';
     ReactiveFormComponent,
     ReactiveAssessmentComponent,
     UserPipe,
-    FilterPipe
+    FilterPipe,
+    ReversePipe,
+    OrderListPipe
     ],
   imports: [
     BrowserModule,
