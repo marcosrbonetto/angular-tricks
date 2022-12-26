@@ -1,4 +1,6 @@
 import { Component} from '@angular/core';
+import { RecipeService } from '../recipes/recipe.service';
+import { StoreDataService } from '../shared/store-data.service';
 
 @Component({
   selector: 'app-header',
@@ -7,5 +9,14 @@ import { Component} from '@angular/core';
 })
 export class HeaderComponent {
 
+  constructor(private store:StoreDataService){}
+
+  SaveData(){
+    this.store.storeRecipes();
+  }
+
+  FetchData(){
+    this.store.fetchRecipes().subscribe();
+  }
  
 }

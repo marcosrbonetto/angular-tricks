@@ -17,13 +17,14 @@
             <ul class="nav navbar-nav">
                 <li routerLinkActive="active" style="cursor: pointer;"><a routerLink="/recipes">Recipes</a></li>
                 <li routerLinkActive="active" style="cursor: pointer;"><a routerLink="/shopping-list">Shopping List</a></li>
+                <li routerLinkActive="active" style="cursor: pointer;"><a routerLink="/auth">Log In</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li appDropdown class="dropdown">
                     <a class="dropdown-toggle" role="button">Manage<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li style="cursor: pointer;"><a>Save Data</a></li>
-                        <li style="cursor: pointer;"><a>Fetch Data</a></li>
+                        <li style="cursor: pointer;" (click)="SaveData()"><a>Save Data</a></li>
+                        <li style="cursor: pointer;" (click)="FetchData()"><a>Fetch Data</a></li>
                     </ul>
                 </li>
             </ul>
