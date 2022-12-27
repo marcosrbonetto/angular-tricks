@@ -2,7 +2,7 @@
     <div class="container-fluid">
         
         <div class="navbar-header">
-            <a routerLink="/recipes" class="navbar-brand">Recipe Book</a>
+            <a *ngIf="isAuthenticated" routerLink="/recipes" class="navbar-brand">Recipe Book</a>
         </div>
 
         <div class="navbar-default"> 
@@ -15,12 +15,15 @@
         </div>
         <div class="navbar-collapse" [class.collapse]="collapsed" (window:resize)="collapsed = true"> -->
             <ul class="nav navbar-nav">
-                <li routerLinkActive="active" style="cursor: pointer;"><a routerLink="/recipes">Recipes</a></li>
-                <li routerLinkActive="active" style="cursor: pointer;"><a routerLink="/shopping-list">Shopping List</a></li>
-                <li routerLinkActive="active" style="cursor: pointer;"><a routerLink="/auth">Log In</a></li>
+                <li *ngIf="isAuthenticated" routerLinkActive="active" style="cursor: pointer;"><a routerLink="/recipes">Recipes</a></li>
+                <li  routerLinkActive="active" style="cursor: pointer;"><a routerLink="/shopping-list">Shopping List</a></li>
+                <li *ngIf="!isAuthenticated" routerLinkActive="active" style="cursor: pointer;"><a routerLink="/auth">Log In</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li appDropdown class="dropdown">
+                <li style="cursor: pointer;" *ngIf="isAuthenticated">
+                    <a (click)="onLogout()">Logout</a>
+                </li>
+                <li appDropdown class="dropdown" *ngIf="isAuthenticated">
                     <a class="dropdown-toggle" role="button">Manage<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li style="cursor: pointer;" (click)="SaveData()"><a>Save Data</a></li>
