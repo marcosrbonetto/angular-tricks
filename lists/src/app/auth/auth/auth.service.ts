@@ -99,7 +99,6 @@ export class AuthService{
         if(!errorMsg.error || !errorMsg.error.error){
             return throwError(()=>new Error(newError));
         }
-
         switch(errorMsg.error.error.message){
             case 'EMAIL_EXISTS':
                 newError = 'This email already exists.';
@@ -110,9 +109,7 @@ export class AuthService{
             case 'EMAIL_NOT_FOUND':
                 newError = 'Email not found.';
                 break;
-                
         }
-
         return throwError(()=>new Error(newError));
     }
 }
