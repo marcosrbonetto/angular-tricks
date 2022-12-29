@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StoreDataService } from '../shared/store-data.service';
 
 @Component({
   selector: 'app-recipes',
@@ -7,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipesComponent implements OnInit {
 
-  constructor(){}
+  constructor(private store:StoreDataService){}
 
   ngOnInit(){
+    this.store.fetchRecipes().subscribe();
   }
 }
