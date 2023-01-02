@@ -1,0 +1,19 @@
+<h1>Api test</h1>
+<h3>Original: {{original}}</h3>
+<p>Transformed reverse: {{transformed }}</p>
+<p>Original camel: {{original | strictCamel}}</p>
+<p>Original reverse: {{original | reverse}}</p>
+<div class="dropdown" [ngClass]="{open:dropdownOpen}">
+  <a class="dropdown-toggle" role="button" (click)="onOpen()">NgClass Open <span class="caret"></span></a>
+  <ul class="dropdown-menu">
+    <li style="cursor: pointer;"><a>Opcion 1</a></li>
+    <li style="cursor: pointer;"><a>Opcion 2</a></li>
+  </ul>
+</div>
+<div class="dropdown" appDropdown>
+  <a class="dropdown-toggle" role="button">Directive Open <span class="caret"></span></a>
+  <ul class="dropdown-menu">
+    <li style="cursor: pointer;"><a>Opcion 1</a></li>
+    <li style="cursor: pointer;"><a>Opcion 2</a></li>
+  </ul>
+</div>
