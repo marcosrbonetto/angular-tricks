@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { TdFormComponent } from './td-form/td-form.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormChildComponent } from './form-child/form-child.component';
 
 const routes : Routes = [
   {path: '' , redirectTo:'/home', pathMatch:'full'},
@@ -33,7 +34,8 @@ const routes : Routes = [
     AppDropdownDirective,
     HomeComponent,
     TdFormComponent,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    FormChildComponent
   ],
   imports: [
     BrowserModule,
