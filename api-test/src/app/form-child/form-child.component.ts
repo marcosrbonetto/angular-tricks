@@ -38,6 +38,6 @@ export class FormChildComponent implements OnInit{
   }
 
   searchUniv(s:string): Observable<Universities[]>{
-    return this.service.fetchUniversities(this.auto);
+    return this.auto!==""? this.service.fetchUniversities(this.auto) : of([]);
   }
 }
