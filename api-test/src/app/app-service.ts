@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { map } from "rxjs";
+import { flatMap, map, take } from "rxjs";
 
 interface ApiObj{
     copyright:string
@@ -22,6 +22,11 @@ interface ApiObjChild{
 interface CatData{
     fact:string
     length:number
+}
+
+export interface Universities{
+    name:string
+    country:number
 }
 
 @Injectable({providedIn:'root'})
@@ -53,6 +58,10 @@ export class AppService{
 
     fetchCatData(){
         return this.http.get<CatData>('https://catfact.ninja/fact');
+    }
+
+    fetchUniversities(country:string){
+        return this.http.get<Universities[]>("http://universities.hipolabs.com/search?country="+country)
     }
 
     fetchTransformedCatData(){
