@@ -29,7 +29,7 @@ export class FormChildComponent implements OnInit{
 
   onKeyUp(event:Event){
     console.log(event);
-    this.newChar$.next("");
+    this.newChar$.next(this.auto);
   }
 
 

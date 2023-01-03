@@ -8,7 +8,7 @@
     <input type="text" class="form-control" [value]="password" disabled>
 </div>
 <div class="form-group">
-    <input type="text" (keyup)="newChar$.next($event.key)" [(ngModel)]="auto">
+    <input type="text" (keyup)="onKeyUp($event)" [(ngModel)]="auto">
     <ul>
         <li *ngFor="let item of resultsUni$ | async">{{item.name}}</li>
     </ul>
