@@ -11,7 +11,16 @@
                 <input type="password" class="form-control" id="password" formControlName="password">
                 <span class="help-block" *ngIf="!f.get('password').valid && f.get('password').touched">password requerido</span>
             </div>
-            <button type="submit" class="btn btn-primary">Log In</button>
+
+            <div class="form-group" formArrayName="items">
+                <div *ngFor="let item of getControls(); let i=index" [formGroupName]="i">
+                    <label [for]="'item'+i">Item name</label>
+                    <input type="text" class="form-control" [id]="'item'+i" formControlName="itemName">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Log In</button> |
+            <button type="button" (click)="addItem()" class="btn btn-default">Add Item</button>
         </form>
     </div>
     <div class="col-md-6">

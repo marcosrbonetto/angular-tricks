@@ -1,30 +1,10 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { flatMap, map, take } from "rxjs";
+import { flatMap, map, mergeMap, take } from "rxjs";
+import { Cat } from "./shared/cat.model";
 
-interface ApiObj{
-    copyright:string
-    num_results:number
-    status:string
-    results: ApiObjChild[]
-}
 
-interface ApiObjChild{
-    id:number
-    display_name:string
-    list_name:string
-    list_name_encoded:string
-    newest_published_date:string
-    oldest_published_date:string
-    updated:string
-}
-
-interface CatData{
-    fact:string
-    length:number
-}
-
-export interface Universities{
+export interface University{
     name:string
     country:number
 }
@@ -33,35 +13,19 @@ export interface Universities{
 
 export class AppService{
 
+    isAuth:boolean=true;
+    isAuthChild:boolean=true;
     constructor(private http:HttpClient){
 
     }
 
-    fetchListData(){
-        const data = this.http.get<ApiObj>('https://catfact.ninja/fact')
-        .pipe(
-            map(res=>{
-                let x = 0;
-                return res.results.map(item=>{
-                    x++;
-                    return {...item, id:x};
-                }) 
-            })
-        )
-        .subscribe(
-            (result)=>{
-                console.log(result);
-        });
-    }
-
-    
 
     fetchCatData(){
-        return this.http.get<CatData>('https://catfact.ninja/fact');
+        return this.http.get<Cat>('https://catfact.ninja/fact');
     }
 
     fetchUniversities(country:string){
-        return this.http.get<Universities[]>("http://universities.hipolabs.com/search?country="+country)
+        return this.http.get<University[]>("http://universities.hipolabs.com/search?country="+country)
     }
 
     fetchTransformedCatData(){

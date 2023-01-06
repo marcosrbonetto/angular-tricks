@@ -14,14 +14,28 @@ import { TdFormComponent } from './td-form/td-form.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormChildComponent } from './form-child/form-child.component';
+import { DirectivesDirective } from './directives/directives.directive';
+import { HomeChildComponent } from './home/home-child/home-child.component';
+import { AuthGuardService } from './auth.guard.service';
+import { CanDeactivateGuardService } from './deactivate-guard.servise';
+import { ErrorPageComponent } from './error-page/error-page.component';
+import { CatResolveGuard } from './resolve-guard.service';
+import { SortedList } from './sorted-list.pipe';
+import { SubstringPipePipe } from './substring-pipe.pipe';
+import { ContainPipePipe } from './contain-pipe.pipe';
+import { AuthComponent } from './auth/auth.component';
 
 const routes : Routes = [
-  {path: '' , redirectTo:'/home', pathMatch:'full'},
-  {path: 'home' , component: HomeComponent},
-  {path: 'test' , component: TestComponent},
+  {path: '' , redirectTo:'/auth', pathMatch:'full'},
+  {path: 'home' , component: HomeComponent , canActivate: [AuthGuardService], children: [
+    {path:':id', component:HomeChildComponent}
+  ]},
+  {path: 'test' , component: TestComponent , resolve:{cats:CatResolveGuard}},
   {path: 'td' , component: TdFormComponent},
-  {path: 'reactive' , component: ReactiveFormComponent},
-  {path: 'auth' , component: HomeComponent}
+  {path: 'reactive' , component: ReactiveFormComponent, canActivate: [AuthGuardService], canDeactivate:[CanDeactivateGuardService]},
+  {path: 'auth' , component: AuthComponent},
+  {path: 'error' , component: ErrorPageComponent, data:{error:'Page not found'}},
+  {path: '**' , redirectTo:'/error'}
 ]
 
 @NgModule({
@@ -35,7 +49,14 @@ const routes : Routes = [
     HomeComponent,
     TdFormComponent,
     ReactiveFormComponent,
-    FormChildComponent
+    FormChildComponent,
+    DirectivesDirective,
+    HomeChildComponent,
+    ErrorPageComponent,
+    SortedList,
+    SubstringPipePipe,
+    ContainPipePipe,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +65,7 @@ const routes : Routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [CanDeactivateGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

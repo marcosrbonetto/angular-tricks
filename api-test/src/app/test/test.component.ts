@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from '../app-service';
+import { AppService, University } from '../app-service';
+import { Router, ActivatedRoute, Data } from '@angular/router';
+import { Observable, filter } from 'rxjs';
 
 @Component({
   selector: 'app-test',
@@ -13,11 +15,17 @@ export class TestComponent implements OnInit{
   original:string='';
   transformed:string='';
   dropdownOpen=false;
+  filteredArray:University[];
   
-  constructor(private service:AppService){}
+  constructor(private service:AppService, private router:Router, private myRoute:ActivatedRoute){}
 
   ngOnInit(): void {
-    //this.service.fetchListData();
+
+    this.myRoute.data.subscribe((data:Data)=>{
+      this.original = data['cats'];
+    });
+
+
     this.service.fetchCatData()
       .subscribe(
         (result)=>{
@@ -28,6 +36,16 @@ export class TestComponent implements OnInit{
         (result)=>{
           this.transformed = result.fact;
     });;
+
+    this.service.fetchUniversities("argentina")
+    .pipe(
+      filter(u=>{return true;})
+    )
+    .subscribe(data=>{
+      this.filteredArray = data;
+    })
+
+
   }
 
   onOpen(){

@@ -14,6 +14,7 @@ import { AlertComponent } from 'src/app/shared/alert/alert.component';
 export class AuthComponent {
 
   @ViewChild(PlaceholderDirective, { static: true }) appPlaceholder! : PlaceholderDirective
+
   isLoginMode=true;
   isLoading=false;
   error:string=null;
@@ -54,7 +55,7 @@ export class AuthComponent {
 
     authObs.subscribe({
       next: 
-            responseData =>{
+            () =>{
             this.isLoading = false;
             this.error=null;
             this.router.navigate(['/recipes']);

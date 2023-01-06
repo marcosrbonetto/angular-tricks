@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { HttpClient, HttpContext, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core"
 import { BehaviorSubject, Subject, catchError, tap, throwError } from "rxjs";
 import { User } from "./user.model";
@@ -86,9 +86,11 @@ export class AuthService{
     }
 
     private handleAuthentication(respData:AuthResponseData){
-        const expDate = new Date(new Date().getTime()+ (+respData.expiresIn*1000)) ;
+        const expDate = new Date(new Date().getTime()+ (+respData.expiresIn*1000));
         const user=new User(respData.email, respData.localId, respData.idToken, expDate);
+
         this.user.next(user); 
+        
         localStorage.setItem('userData', JSON.stringify(user));
         this.autoLogout(+respData.expiresIn*1000);
     }

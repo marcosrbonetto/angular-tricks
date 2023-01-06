@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-home-child',
+  templateUrl: './home-child.component.html',
+  styleUrls: ['./home-child.component.css']
 })
-export class HomeComponent implements OnInit{
+export class HomeChildComponent implements OnInit{
 
   id:string;
   constructor(private router:Router, private myRoute:ActivatedRoute){}
@@ -20,3 +20,4 @@ export class HomeComponent implements OnInit{
   }
 
 }
+

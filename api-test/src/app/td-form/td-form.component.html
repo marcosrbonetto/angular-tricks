@@ -1,7 +1,7 @@
 <div class="row">
         <div class="col-md-6">
             <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-                <div class="form-group">
+                <div class="form-group" ngModelGroup="userGroup">
                     <label for="user">User</label>
                     <input type="email" class="form-control" placeholder="User email" id="user" ngModel name="user" email required #user="ngModel">
                     <span class="help-block" *ngIf="!user.valid && user.touched">User email requerido</span>

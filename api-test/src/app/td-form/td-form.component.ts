@@ -16,7 +16,7 @@ export class TdFormComponent implements OnInit {
   onSubmit(form:NgForm){
     console.log("TD");
     console.log(form.value);
-    this.userTxt = form.value.user;
+    this.userTxt = form.value.userGroup.user;
     this.pswTxt = form.value.password;
   }
 
